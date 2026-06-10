@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,20 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <header className="px-5 py-2 flex justify-between items-center bg-amber-300 gap-5">
+          <img src="/food logo.jpg" alt="Food Logo" className="h-12 w-auto" />
+          <div>
+            <Link className="btn-premium" href="/foods">
+              Foods
+            </Link>
+            <Link className="btn-premium" href="/reviews">
+              Reviews
+            </Link>
+          </div>
+        </header>
+        <main className="px-5">{children}</main>
+      </body>
     </html>
   );
 }
