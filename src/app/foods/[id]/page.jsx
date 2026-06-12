@@ -10,6 +10,7 @@ const getFoodById = async (id) => {
   }
 
   const data = await res.json();
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return data.details;
 };
 
